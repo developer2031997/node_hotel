@@ -24,6 +24,7 @@ routes
            console.log(result);
            res.status(200).json({ message: 'Fetch data successfully.', result: result });
        } catch (error) {
+        const result = await Person.find();
            console.log(error);
            res.status(500).json({ error: "Internal server error" });
        }
