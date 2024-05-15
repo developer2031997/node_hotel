@@ -81,3 +81,4 @@
 [15/5/2024, 4:54:59 pm] Request Made to :  GET /menuitem/menu
 [15/5/2024, 4:57:04 pm] Request Made to :  GET /menuitem/menu
 [15/5/2024, 5:06:59 pm] Request Made to :  GET /menuitem/menu
+[15/5/2024, 5:36:40 pm] Request Made to :  GET /person
