@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 
 // Route handlers for '/person' and '/menuitem' routes with authentication
 const personRouter = require("./routes/personRoute");
-app.use('/person', passwordMiddleware, personRouter);
+app.use('/person',passwordMiddleware, personRouter);
 
 const menuitemRoute = require("./routes/menuitemRoute");
 app.use('/menuitem', passwordMiddleware, menuitemRoute);

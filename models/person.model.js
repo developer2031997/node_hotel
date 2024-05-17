@@ -44,6 +44,9 @@ const personSchema = new mongoose.Schema({
 
 personSchema.pre('save', async function(next) {
     try {
+        console.log('pre-save hook called');
+    console.log('isModified:', this.isModified('password'));
+    console.log('current password:', this.password);
         const person = this;
 
         // Hash the password only if it's modified or new
@@ -52,7 +55,9 @@ personSchema.pre('save', async function(next) {
         // Generate salt and hash the password
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(person.password, salt);
+console.log("person.password",person.password)
 
+console.log("hashPassword",hashPassword)
         // Update the password with the hashed value
         person.password = hashPassword;
 
@@ -64,8 +69,12 @@ personSchema.pre('save', async function(next) {
 
 personSchema.methods.comparePassword = async function(candidatePassword) {
     try {
+        console.log("candidatePassword :- ",typeof candidatePassword, candidatePassword)
+        console.log("this.password :- ", typeof this.password, this.password)
+
         // Compare candidate password with the stored hashed password
-        const isMatch = await bcrypt.compare(candidatePassword, this.password);
+        const isMatch = await  bcrypt.compare(candidatePassword, this.password);
+        console.log("isMatch",isMatch);
         return isMatch;
     } catch (error) {
         throw new Error('Invalid password comparison');
