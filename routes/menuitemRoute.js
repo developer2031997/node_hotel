@@ -19,7 +19,7 @@ routes.post('/menu',async (req,res)=>{
     }
 } )
 
-.get('/menu',async (req,res)=>{
+.get('/',async (req,res)=>{
   try {
     const result = await menuitem.find();
     console.log(result);

@@ -5,7 +5,6 @@ const Person = require("../models/person.model");
 routes
 .post('/',async (req,res)=>{
     try {   const body = req.body;
-   
        // console.log('Request Body:', body);
    
        const newPerson = await new Person(body);
